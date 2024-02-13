@@ -26,7 +26,7 @@ function validaFormulario() {
     if (nombre === '') {
         document.getElementById('nombre').style.borderColor = 'red';
         document.getElementById('error_nombre').textContent = 'Campo del nombre vacío, por favor completar';
-        document.getElementById('error_nombre').style.cssText = 'margin: 10px; height: 10px';
+        document.getElementById('error_nombre').style.cssText = 'margin: 0 auto; padding-bottom: 3px';
     }
     else{
         document.getElementById('nombre').style.borderColor = '';
@@ -36,7 +36,7 @@ function validaFormulario() {
     if (edad > 99 || 18 > edad || isNaN(edad)) {
         document.getElementById('edad').style.borderColor = 'red';
         document.getElementById('error_edad').textContent = 'La edad debe ser un número y encontrarse en el intervalo de 18 a 99 años.';
-        document.getElementById('error_edad').style.cssText = 'margin: 10px; height: 10px';
+        document.getElementById('error_edad').style.cssText = 'margin: 0 auto; padding-bottom: 3px';
     }
     else{
         document.getElementById('edad').style.borderColor = '';
@@ -45,3 +45,6 @@ function validaFormulario() {
     }
 
 }
+
+
+// EJERCICIO 3:
