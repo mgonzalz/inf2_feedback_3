@@ -12,6 +12,8 @@ document.getElementById('titulo').textContent = titulo;
 var descripcion = 'Descripción nueva de la página';
 document.getElementById('descripcion').textContent = descripcion;
 
+
+
 // EJERCICIO 2: FUNCIÓN QUE VALIDE LOS CAMPOS DEL FORMULARIO.
 /*
 Debemos de realizar una función que primero mire si lo introducido en el campo del nombre esta vacio o no;
@@ -22,6 +24,7 @@ reestablezcan las propiedades por defecto.
 Luego se mira si edad es mayor que 99 o menor que 18 o si NO es un número, y se aplica lo mismo que
 en el nombre; en caso contrario el número es correcto y se reestablecen las propiedades por defecto.
  */
+
 function validaFormulario() {
     let nombre = document.getElementById('nombre').value;
     let edad = document.getElementById('edad').value;
@@ -59,8 +62,8 @@ establece como 0; es decir, ninguna visita. En caso de que no ocurra esto, se le
 
 Tras ello el nuevo valor de contador se almacena en la clave 'accesos' y actualizamos el valor que se mostrará en
 la página web.
-
  */
+
 function contarVisitas(){
     let contador= localStorage.getItem('accesos');
     if(contador === null){
@@ -83,12 +86,20 @@ formulario para el evento 'DOMContentLoaded', activo cuando se carga la página.
 creamos primero una variable que coge colores aleatorios de la lista color ya definida mediante Math.
 Tras ello, se aplica este a los campos del formulario.
  */
-const colores = ['aqua', 'black', 'blue', 'fuchsia', 'green', 'purple', 'red', 'white', 'yellow'];
+
+let colores = ['aqua', 'blue', 'fuchsia', 'green', 'purple', 'red', 'white', 'yellow'];
 function coloresFormulario() {
-    const colorAleatorio = colores[Math.floor(Math.random()*colores.length)];
+    let colorAleatorio = colores[Math.floor(Math.random()*colores.length)];
 
     document.getElementById('nombre').style.backgroundColor = colorAleatorio;
     document.getElementById('edad').style.backgroundColor = colorAleatorio;
 }
 
 document.addEventListener('DOMContentLoaded', coloresFormulario);
+
+
+
+// EJERCICIO 5: FUNCIÓN DE AUTOGUARDADO DEL FORMULARIO (GUARDAR LOS VALORES EN LOCALSTORAGE) PARA CUANDO SE RECARGA LA PÁGINA.
+/*
+
+ */
