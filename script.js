@@ -1,8 +1,10 @@
-// EJERCICIO 1: CAMBIAR EL TÍTULO Y DESCRIPCION
-/*Para cambiar el texto primero debemos de crear una variable de tipo string que
+// EJERCICIO 1: CAMBIAR EL TÍTULO Y DESCRIPCION.
+/*
+Para cambiar el texto primero debemos de crear una variable de tipo string que
 contenga el nuevo texto; tras ello, mediante la funcion document.getElementById() accedemos
 al elemento que queremos modificar y añadimos textContent para modificarlo; finalmente igualamos esto
-a la variable creada que contiene el nuevo texto*/
+a la variable creada que contiene el nuevo texto.
+*/
 
 var titulo = 'Nuevo Título';
 document.getElementById('titulo').textContent = titulo;
@@ -10,7 +12,7 @@ document.getElementById('titulo').textContent = titulo;
 var descripcion = 'Descripción nueva de la página';
 document.getElementById('descripcion').textContent = descripcion;
 
-// EJERCICIO 2: FUNCIÓN QUE VALIDE LOS CAMPOS DEL FORMULARIO
+// EJERCICIO 2: FUNCIÓN QUE VALIDE LOS CAMPOS DEL FORMULARIO.
 /*
 Debemos de realizar una función que primero mire si lo introducido en el campo del nombre esta vacio o no;
 en caso de estar vacio aplica un borde rojo y un texto; en caso contrario (si ya anteriormente estaba vacío,
@@ -47,4 +49,31 @@ function validaFormulario() {
 }
 
 
-// EJERCICIO 3:
+
+// EJERCICIO 3: CONTADOR DE VISITAS QUE INCREMENTE AL RECARGAR LA PÁGINA.
+/*
+Mediante addEventListener registramos la función que permite el conteo de las visitas para el evento
+ha sido totalmente cargado. Al ejecutar la función primero creamos la variable contador que almacena
+su valor actual en el 'LocalStorage' mediante la clave 'accesos'. En caso de ser el contador nulo, lo
+establece como 0; es decir, ninguna visita. En caso de que no ocurra esto, se le sumará 1 al contador.
+
+Tras ello el nuevo valor de contador se almacena en la clave 'accesos' y actualizamos el valor que se mostrará en
+la página web.
+
+ */
+function contarVisitas(){
+    let contador= localStorage.getItem('accesos');
+    if(contador === null){
+        contador = 0;
+    }
+    else{
+        contador = parseInt(contador) + 1;
+    }
+    localStorage.setItem('accesos', contador);
+    document.getElementById('contador').textContent = contador;
+}
+document.addEventListener('DOMContentLoaded', contarVisitas);
+
+
+
+// EJERCICIO 4:
