@@ -52,8 +52,8 @@ function validaFormulario() {
 
 // EJERCICIO 3: CONTADOR DE VISITAS QUE INCREMENTE AL RECARGAR LA PÁGINA.
 /*
-Mediante addEventListener registramos la función que permite el conteo de las visitas para el evento
-ha sido totalmente cargado. Al ejecutar la función primero creamos la variable contador que almacena
+Mediante addEventListener registramos la función que permite el conteo de las visitas para el evento 'DOMContentLoaded',
+activo cuando se carga la página. Al ejecutar la función primero creamos la variable contador que almacena
 su valor actual en el 'LocalStorage' mediante la clave 'accesos'. En caso de ser el contador nulo, lo
 establece como 0; es decir, ninguna visita. En caso de que no ocurra esto, se le sumará 1 al contador.
 
@@ -76,4 +76,19 @@ document.addEventListener('DOMContentLoaded', contarVisitas);
 
 
 
-// EJERCICIO 4:
+// EJERCICIO 4: FUNCIÓN QUE CAMBIE EL COLOR DE LOS CAMPOS DEL FORMULARIO CADA VEZ QUE SE MUESTRA LA PÁGINA WEB.
+/*
+Mediante addEventListener registramos la función que permite cambiar el color a los campos del
+formulario para el evento 'DOMContentLoaded', activo cuando se carga la página. Al ejecutar la función,
+creamos primero una variable que coge colores aleatorios de la lista color ya definida mediante Math.
+Tras ello, se aplica este a los campos del formulario.
+ */
+const colores = ['aqua', 'black', 'blue', 'fuchsia', 'green', 'purple', 'red', 'white', 'yellow'];
+function coloresFormulario() {
+    const colorAleatorio = colores[Math.floor(Math.random()*colores.length)];
+
+    document.getElementById('nombre').style.backgroundColor = colorAleatorio;
+    document.getElementById('edad').style.backgroundColor = colorAleatorio;
+}
+
+document.addEventListener('DOMContentLoaded', coloresFormulario);
