@@ -101,20 +101,21 @@ document.addEventListener('DOMContentLoaded', coloresFormulario);
 
 // EJERCICIO 5: FUNCIÓN DE AUTOGUARDADO DEL FORMULARIO (GUARDAR LOS VALORES EN LOCALSTORAGE) PARA CUANDO SE RECARGA LA PÁGINA.
 /*
-Mediante addEventListener registramos la función que permite cambiar el color a los campos del
-formulario para el evento 'DOMContentLoaded', activo cuando se carga la página. A su vez cuando escribamos algo en un input, se ejecuta la función.
-La función consiste en primero guardar los valores del input en una variable y guardar esta en la LocalStorage;
-tras ello, accedemos a ellos a través de getItem y comprobamos si están vacios. En caso de no estarlos,
-se actualizan los campos del formulario.
+Primero tenemos una función que se ejecuta al  escribir en el propio Input; almacena en una variable
+la edad y el nombre y la guarda en el LocalStorage. Mediante addEventListener registramos la función que permite
+autoguardar los campos del formulario, esta se ejecuta cada vez que refrescamos la página. Esta función consiste en
+guardar en una variable lo que se tiene en la LocalStorage y en caso de NO ser nulo, se asigna como el valor del input.
  */
 
-function guardarFormulario() {
+function guardarDatos(){
     const nombre = document.getElementById('nombre').value;
     const edad = document.getElementById('edad').value;
 
     localStorage.setItem('nombre', nombre);
     localStorage.setItem('edad', edad);
+}
 
+function guardarFormulario() {
     const nombreLocal = localStorage.getItem('nombre');
     const edadLocal = localStorage.getItem('edad');
 
@@ -126,8 +127,5 @@ function guardarFormulario() {
         document.getElementById('edad').value = edadLocal;
     }
 }
-
-document.getElementById('nombre').addEventListener('input', guardarFormulario);
-document.getElementById('edad').addEventListener('input', guardarFormulario);
 
 document.addEventListener('DOMContentLoaded', guardarFormulario);
