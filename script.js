@@ -87,7 +87,7 @@ creamos primero una variable que coge colores aleatorios de la lista color ya de
 Tras ello, se aplica este a los campos del formulario.
  */
 
-let colores = ['aqua', 'blue', 'fuchsia', 'green', 'purple', 'red', 'white', 'yellow'];
+const colores = ['aqua', 'blue', 'fuchsia', 'green', 'purple', 'red', 'white', 'yellow'];
 function coloresFormulario() {
     let colorAleatorio = colores[Math.floor(Math.random()*colores.length)];
 
@@ -101,5 +101,33 @@ document.addEventListener('DOMContentLoaded', coloresFormulario);
 
 // EJERCICIO 5: FUNCIÓN DE AUTOGUARDADO DEL FORMULARIO (GUARDAR LOS VALORES EN LOCALSTORAGE) PARA CUANDO SE RECARGA LA PÁGINA.
 /*
-
+Mediante addEventListener registramos la función que permite cambiar el color a los campos del
+formulario para el evento 'DOMContentLoaded', activo cuando se carga la página. A su vez cuando escribamos algo en un input, se ejecuta la función.
+La función consiste en primero guardar los valores del input en una variable y guardar esta en la LocalStorage;
+tras ello, accedemos a ellos a través de getItem y comprobamos si están vacios. En caso de no estarlos,
+se actualizan los campos del formulario.
  */
+
+function guardarFormulario() {
+    const nombre = document.getElementById('nombre').value;
+    const edad = document.getElementById('edad').value;
+
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('edad', edad);
+
+    const nombreLocal = localStorage.getItem('nombre');
+    const edadLocal = localStorage.getItem('edad');
+
+    if (nombreLocal !== null) {
+        document.getElementById('nombre').value = nombreLocal;
+    }
+
+    if (edadLocal !== null) {
+        document.getElementById('edad').value = edadLocal;
+    }
+}
+
+document.getElementById('nombre').addEventListener('input', guardarFormulario);
+document.getElementById('edad').addEventListener('input', guardarFormulario);
+
+document.addEventListener('DOMContentLoaded', guardarFormulario);
